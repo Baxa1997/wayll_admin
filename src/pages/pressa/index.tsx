@@ -4,8 +4,6 @@ import Head from "next/head";
 import { useUnit } from "effector-react";
 import { useRouter } from "next/router";
 
-import { SubmitApplication } from "@/widgets/submit-application";
-
 import {
   $count,
   $news,
@@ -17,6 +15,7 @@ import {
 import { Container, Spinner } from "@/shared/ui";
 import { NewsPost as NewsPostType } from "@/shared/types/api";
 import { lib } from "@/shared/lib";
+import { InvestmentSubmitApplication } from "@/widgets/submit-application/InvestApplication";
 
 export default function Pressa() {
   return (
@@ -35,7 +34,7 @@ export default function Pressa() {
           </div>
         </Container>
       </section> */}
-      <section className="py-16 xl:py-24">
+      <section className="py-16 xl:py-24 xl:pt-32">
         <Container>
           <div className="text-center text-3xl font-semibold text-gray-900 xl:text-4xl">
             Последние новости
@@ -47,7 +46,7 @@ export default function Pressa() {
           <ViewMoreButton />
         </Container>
       </section>
-      <SubmitApplication />
+      <InvestmentSubmitApplication />
     </div>
   );
 }

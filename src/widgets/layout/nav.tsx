@@ -11,49 +11,69 @@ import { Locale } from "@/shared/lib/locale";
 
 import language from "@/../public/images/language.svg";
 import chevronDown from "@/../public/images/chevron-down.svg";
+import { useLocalizedStrings } from "@/shared/lib/useLocaliizedString";
 
-export const AboutUs = ({ onClick }: { onClick?: () => void }) => (
-  <Link href="/about" onClick={onClick}>
-    <Li activePath="/about">О нас</Li>
-  </Link>
-);
+export const AboutUs = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
+  return (
+    <Link href="/about" onClick={onClick}>
+      <Li activePath="/about">{localizedStrings["aboutus_nav"]}</Li>
+    </Link>
+  );
+};
 
-export const InvestmentProducts = ({ onClick }: { onClick?: () => void }) => (
-  <Link href="/investment-products" onClick={onClick}>
-    <Li activePath="/investment-products">Продукты</Li>
-  </Link>
-);
+export const InvestmentProducts = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
+  return (
+    <Link href="/investment-products" onClick={onClick}>
+      <Li activePath="/investment-products">
+        {localizedStrings["products_nav"]}
+      </Li>
+    </Link>
+  );
+};
 
-export const Shariah = ({ onClick }: { onClick?: () => void }) => (
-  <Link href="/shariah" onClick={onClick}>
-    <Li activePath="/shariah"></Li>
-  </Link>
-);
+export const Shariah = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
+  return (
+    <Link href="/shariah" onClick={onClick}>
+      <Li activePath="/shariah"></Li>
+    </Link>
+  );
+};
 
-export const Pressa = ({ onClick }: { onClick?: () => void }) => (
-  <Link href="/pressa" onClick={onClick}>
-    <Li activePath="/pressa">Pressa</Li>
-  </Link>
-);
+export const Pressa = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
+  return (
+    <Link href="/pressa" onClick={onClick}>
+      <Li activePath="/pressa">{localizedStrings["pressa_nav"]}</Li>
+    </Link>
+  );
+};
 
-export const Portfolio = ({ onClick }: { onClick?: () => void }) => (
-  <Link href="/portfolio" onClick={onClick}>
-    <Li activePath="/portfolio">Портфолио</Li>
-  </Link>
-);
+export const Portfolio = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
+  return (
+    <Link href="/portfolio" onClick={onClick}>
+      <Li activePath="/portfolio">{localizedStrings["portfolio_nav"]}</Li>
+    </Link>
+  );
+};
 
 export const Contact = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
   return (
     <Link href="/contacts" onClick={onClick}>
-      <Li activePath="/contacts">Контакты</Li>
+      <Li activePath="/contacts">{localizedStrings["contacts_nav"]}</Li>
     </Link>
   );
 };
 
 export const Charity = ({ onClick }: { onClick?: () => void }) => {
+  const localizedStrings = useLocalizedStrings();
   return (
     <Link href="/charity" onClick={onClick}>
-      <Li activePath="/charity">Благотворительность</Li>
+      <Li activePath="/charity">{localizedStrings["charity_nav"]}</Li>
     </Link>
   );
 };
@@ -133,6 +153,7 @@ export const SelectLanguage = ({ className, ...props }: Div) => {
 
 export const SelectNavigation = ({ className, ...props }: Div) => {
   const [open, setOpen] = React.useState(false);
+  const localizedStrings = useLocalizedStrings();
   const [selectedOption, setSelectedOption] = React.useState("R&D");
   const router = useRouter();
 
@@ -171,7 +192,7 @@ export const SelectNavigation = ({ className, ...props }: Div) => {
             className,
           )}
           {...props}>
-          Медиа
+          {localizedStrings["media_nav"]}
           <Image
             src={chevronDown}
             alt="down"
@@ -182,7 +203,7 @@ export const SelectNavigation = ({ className, ...props }: Div) => {
       <Popover.Portal>
         <Popover.Content
           sideOffset={2 * 4}
-          className="z-10 rounded-lg bg-white p-2 shadow outline-none will-change-[transform,opacity] data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=top]:animate-slideDownAndFade">
+          className="z-50 rounded-lg bg-white p-2 shadow outline-none will-change-[transform,opacity] data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=top]:animate-slideDownAndFade">
           {/* <div
             className={clsx(
               "cursor-pointer rounded-md px-5 py-2.5 hover:bg-gray-100",
@@ -197,7 +218,7 @@ export const SelectNavigation = ({ className, ...props }: Div) => {
               selectedOption === "Pressa" && "bg-gray-100",
             )}
             onClick={() => onOptionSelect("Pressa")}>
-            Пресса
+            {localizedStrings["pressa_nav"]}
           </div>
           {/* <div
             className={clsx(
@@ -213,7 +234,7 @@ export const SelectNavigation = ({ className, ...props }: Div) => {
               selectedOption === "Career" && "bg-gray-100",
             )}
             onClick={() => onOptionSelect("Career")}>
-            Карьера
+            {localizedStrings["career_nav"]}
           </div>
           <div
             className={clsx(
@@ -221,7 +242,7 @@ export const SelectNavigation = ({ className, ...props }: Div) => {
               selectedOption === "FAQ" && "bg-gray-100",
             )}
             onClick={() => onOptionSelect("FAQ")}>
-            FAQ
+            {localizedStrings["faq_nav"]}
           </div>
         </Popover.Content>
       </Popover.Portal>

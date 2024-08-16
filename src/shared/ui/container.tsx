@@ -8,3 +8,9 @@ export const Container = ({ className, children, ...props }: Div) => (
     {children}
   </div>
 );
+
+export const ContainerSm = ({ className, children, ...props }: Div) => (
+  <div className={clsx("px-4 sm:px-6 md:px-6 xl:px-12", className)} {...props}>
+    {children}
+  </div>
+);

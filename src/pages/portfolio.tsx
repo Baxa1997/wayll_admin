@@ -31,7 +31,7 @@ export default function Shariah() {
         </Container>
       </section> */}
 
-      <section>
+      <section className="xl:pt-8">
         <Container>
           <div className="border-b border-solid border-b-gray-200 py-16 xl:py-24">
             <div className="text-center text-3xl font-semibold text-gray-900 xl:text-4xl">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { Container } from "@/shared/ui";
@@ -6,41 +6,40 @@ import chartImage from "@/../public/images/invest-new.png";
 import akfa from "@/../public/images/akfa_logo.png";
 import artel from "@/../public/images/artel_logo.png";
 import imzo from "@/../public/images/imzo_logo.png";
-import caex from "@/../public/images/caex-logo.png";
+import caex from "@/../public/images/caex.jpg";
 import feedup from "@/../public/images/feed-up.png";
 import { SubmitApplication } from "@/widgets/submit-application";
 import { numberWithSpaces } from "@/shared/lib/numberWithSpaces";
 import * as Dialog from "@radix-ui/react-dialog";
+
+interface Props {
+  showForm: boolean;
+  onClose: () => void;
+}
 
 export default function Invest() {
   const [investment, setInvestment] = useState(5000000);
   const [term, setTerm] = useState(5);
   const [percentage, setPercentage] = useState(5);
   const [result, setResult] = useState(0);
+  const [showForm, setShowForm] = useState(false);
+  const [showBtn, setShowBtn] = useState(false);
 
   const handleCalculate = () => {
     const calculatedResult = investment * Math.pow(1 + percentage / 100, term);
     setResult(calculatedResult);
+    setShowBtn(true);
   };
 
-  useEffect(() => {
-    handleCalculate();
-  }, [investment, term, percentage]);
+  const handleClose = () => {
+    setShowForm(false);
+  };
 
   return (
     <div>
       <Head>
         <title>Invest</title>
       </Head>
-
-      {/* <section className="bg-gray-50 py-16 text-center">
-        <h1 className="text-5xl font-bold text-gray-900">
-          Возможности инвестирования
-        </h1>
-        <p className="mx-auto mt-4 max-w-[600px] text-lg font-normal text-gray-600">
-          Мы научим вас философии инвестиций и тому, как инвестировать.
-        </p>
-      </section> */}
 
       <section className="py-16 xl:py-24">
         <Container>
@@ -93,6 +92,7 @@ export default function Invest() {
                 type="text"
                 className="text-x border-b-none h-[59px] w-full rounded-md rounded-b-none rounded-t-[8px] border-[1px] border-[#D0D5DD] px-[14px] font-bold text-[#667085]"
                 value={`${numberWithSpaces(investment)} UZS`}
+                readOnly
               />
               <input
                 type="range"
@@ -115,6 +115,7 @@ export default function Invest() {
                 type="text"
                 className="text-x border-b-none h-[59px] w-full rounded-md rounded-b-none rounded-t-[8px] border-[1px] border-[#D0D5DD] px-[14px] font-bold text-[#667085]"
                 value={`${term} ${term == 1 ? "год" : "года"}`}
+                readOnly
               />
               <input
                 type="range"
@@ -137,6 +138,7 @@ export default function Invest() {
                 type="text"
                 className="text-x border-b-none h-[59px] w-full rounded-md rounded-b-none rounded-t-[8px] border-[1px] border-[#D0D5DD] px-[14px] font-bold text-[#667085]"
                 value={`${percentage} %`}
+                readOnly
               />
               <input
                 type="range"
@@ -160,7 +162,15 @@ export default function Invest() {
               onClick={handleCalculate}>
               Рассчитать
             </button>
-            <ModalComponent />
+
+            {showBtn && (
+              <button
+                className="mt-4 w-full rounded-md border bg-white py-3 text-lg font-bold text-red-500 shadow-lg"
+                onClick={() => setShowForm(true)}>
+                Подать заявку
+              </button>
+            )}
+            <ModalComponent showForm={showForm} onClose={handleClose} />
           </div>
         </Container>
       </section>
@@ -183,55 +193,26 @@ export default function Invest() {
           </div>
         </Container>
       </section>
-
-      <section>
-        {/* <SubmitApplication
-          title={"Подать заявку"}
-          subtitle="Оставьте заявку и мы свяжемся с вами"
-        /> */}
-      </section>
     </div>
   );
 }
 
-const ModalComponent = () => {
+const ModalComponent = ({ showForm, onClose }: Props) => {
   return (
-    <Dialog.Root>
-      <Dialog.Trigger asChild>
-        <button className="Button violet">Edit profile</button>
-      </Dialog.Trigger>
+    <Dialog.Root open={showForm} onOpenChange={onClose}>
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay" />
         <Dialog.Content className="DialogContent">
-          <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
-          <Dialog.Description className="DialogDescription">
-            Make changes to your profile here. Click save when you are done.
-          </Dialog.Description>
-          <fieldset className="Fieldset">
-            <label className="Label" htmlFor="name">
-              Name
-            </label>
-            <input className="Input" id="name" defaultValue="Pedro Duarte" />
-          </fieldset>
-          <fieldset className="Fieldset">
-            <label className="Label" htmlFor="username">
-              Username
-            </label>
-            <input className="Input" id="username" defaultValue="@peduarte" />
-          </fieldset>
-          <div
-            style={{
-              display: "flex",
-              marginTop: 25,
-              justifyContent: "flex-end",
-            }}>
-            <Dialog.Close asChild>
-              <button className="Button green">Save changes</button>
-            </Dialog.Close>
-          </div>
+          <section>
+            <SubmitApplication
+              title={"Подать заявку"}
+              subtitle="Оставьте заявку и мы свяжемся с вами"
+              onClose={onClose}
+            />
+          </section>
           <Dialog.Close asChild>
-            <button className="IconButton" aria-label="Close">
-              {/* <Cross2Icon /> */}
+            <button className="mt-4 w-full rounded-md bg-red-500 py-2 text-lg font-bold text-white shadow-md">
+              Закрыть
             </button>
           </Dialog.Close>
         </Dialog.Content>

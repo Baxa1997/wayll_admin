@@ -9,6 +9,7 @@ import { CareerApplication } from "@/widgets/submit-application/CareerApplicatio
 const CareerDetails = () => {
   const router = useRouter();
   const { id } = router.query;
+  console.log("idididididid", id, careers);
 
   const career = careers.find((c) => c.id === id);
 
@@ -17,9 +18,8 @@ const CareerDetails = () => {
   }
 
   return (
-    <div>
-      {" "}
-      <section>
+    <>
+      <section className="pt-20">
         <Container>
           <div>
             <div className="mt-5 flex items-center gap-x-2">
@@ -36,8 +36,8 @@ const CareerDetails = () => {
           </div>
         </Container>
       </section>
-      <CareerApplication />
-    </div>
+      <CareerApplication title={career?.title} />
+    </>
   );
 };
 

@@ -25,7 +25,7 @@ export default function HomePage() {
         </p>
       </section> */}
 
-      <section className="py-16 xl:py-24">
+      <section className="py-16 xl:py-24 xl:pt-32">
         <Container>
           <div className="lg:grid lg:grid-cols-2 lg:gap-8">
             <div className="max-w-[500px]">
@@ -54,11 +54,10 @@ export default function HomePage() {
           <div className="mt-16">
             <div className="relative mx-auto h-[450px] max-w-[800px] overflow-hidden rounded-lg shadow-lg">
               <iframe
-                width="50%"
+                width="100%"
                 height="600px"
-                className="h-full w-full"
-                src="https://www.youtube.com/embed/p11cBIvBf7w"
-                title="Top Wayll Promo"
+                src="https://www.youtube.com/embed/177OUJEU5xQ"
+                title="Way ll xayriya loyihalari"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
             </div>
           </div>

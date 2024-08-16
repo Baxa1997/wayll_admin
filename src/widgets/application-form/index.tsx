@@ -26,7 +26,7 @@ interface FormValues extends ApplicationBody {
   policy: boolean;
 }
 
-export const ApplicationForm = () => {
+export const ApplicationForm = ({ onClose }: any) => {
   const form = useForm<FormValues>();
   const onSubmitted = useUnit(formSubmitted);
 
@@ -35,20 +35,17 @@ export const ApplicationForm = () => {
     // @ts-ignore
     delete body["policy"];
     onSubmitted({ value: body });
+    onClose();
   };
 
   return (
     <form onSubmit={form.handleSubmit(submit)}>
-      <div className="mx-auto mt-16 flex max-w-[480px] flex-col gap-y-6">
+      <div className="mx-auto mt-0 flex max-h-[60vh] max-w-[480px] flex-col gap-y-6 overflow-auto">
         <div className="flex flex-col gap-y-6 lg:flex-row lg:gap-x-8">
           <FirstNameField
             invalid={Boolean(form.formState.errors.first_name)}
             {...form.register("first_name", { required: true })}
           />
-          {/* <LastNameField
-            invalid={Boolean(form.formState.errors.last_name)}
-            {...form.register("last_name", { required: true })}
-          /> */}
         </div>
         <CountryField
           invalid={Boolean(form.formState.errors.country)}
@@ -79,6 +76,8 @@ export const ApplicationForm = () => {
           invalid={Boolean(form.formState.errors.policy)}
           {...form.register("policy", { validate: (value) => value === true })}
         />
+      </div>
+      <div className="sticky bottom-0 bg-white py-4">
         <SubmitButton />
       </div>
     </form>
@@ -229,7 +228,7 @@ export const SubmitButton = () => {
     <Button
       appearance="destructive"
       size="xl"
-      className="mt-2 h-[50px]"
+      className="sticky bottom-0 h-[50px] w-full"
       disabled={pending}>
       {pending ? (
         <Spinner className="animate-infiniteSpin" />

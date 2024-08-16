@@ -7,6 +7,7 @@ import chartImage from "@/../public/images/chart-image.png";
 import akfa from "@/../public/images/akfa_logo.png";
 import artel from "@/../public/images/artel_logo.png";
 import hilton from "@/../public/images/hilton-icon.jpg";
+import caex from "@/../public/images/caex.jpg";
 import akfaBuild from "@/../public/images/akfa_build_logo.png";
 import feedup from "@/../public/images/feed-up.png";
 import { SubmitApplication } from "@/widgets/submit-application";
@@ -18,16 +19,16 @@ export default function InvestPage() {
         <title>Be invested</title>
       </Head>
 
-      <section className="bg-gray-50 py-16 text-center">
+      {/* <section className="bg-gray-50 py-16 text-center">
         <h1 className="text-5xl font-bold text-gray-900">
           Получить инвестиции
         </h1>
         <p className="mx-auto mt-4 max-w-[600px] text-lg font-normal text-gray-600">
           Мы научим вас философии инвестиций и тому, как инвестировать.
         </p>
-      </section>
+      </section> */}
 
-      <section className="py-16 xl:py-24">
+      <section className="py-16 xl:py-24 xl:pt-32">
         <Container>
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="max-w-[560px] lg:w-1/2">
@@ -62,31 +63,26 @@ export default function InvestPage() {
         </Container>
       </section>
 
-      <section className="bg-gray-50 py-16 xl:py-24">
+      <section className="xl:py-18 bg-gray-50 py-12">
         <Container>
-          <div className="text-center text-base font-medium text-gray-600">
-            Official partner of these companies
+          <div className="text-center">
+            <p className="text-2xl text-gray-600">Нам доверяют:</p>
           </div>
           <div className="mt-[32px] flex flex-wrap items-center justify-between gap-x-8 gap-y-6">
-            <Image src={feedup} alt="akfa" className="h-9 w-fit xl:h-12" />
             <Image src={akfa} alt="akfa" className="h-9 w-fit xl:h-12" />
-            <Image src={artel} alt="artel" className="h-9 w-fit xl:h-12" />
-            <Image src={hilton} alt="imzo" className="" />
-            <Image
-              src={akfaBuild}
-              alt="akfa-build"
-              className="h-9 w-fit xl:h-[54px]"
-            />
+            <Image src={artel} alt="artel" className="h-16 w-auto xl:h-16" />
+            <Image src={hilton} alt="hilton" className="h-20 w-auto xl:h-40" />
+            <Image src={caex} alt="caex" className="h-9 w-fit xl:h-12" />
           </div>
         </Container>
       </section>
 
-      <section>
+      {/* <section>
         <SubmitApplication
           title="Подать заявку"
           subtitle="Будьте одним из первых, кто станет нашим партнером! "
         />
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -18,7 +18,7 @@ export default function Faq() {
         <title>FAQ</title>
       </Head>
 
-      <section className="py-16 xl:py-24">
+      <section className="py-16 xl:py-24 xl:pt-32">
         <Container>
           <div className="text-center">
             <div className="mb-4 text-[30px] font-bold text-[#101828] lg:text-[40px]">

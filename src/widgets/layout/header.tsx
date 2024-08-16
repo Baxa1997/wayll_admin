@@ -28,7 +28,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full bg-white">
+    <header className="fixed left-0 top-0 z-10 w-full bg-white">
       <Container className="flex items-center justify-between py-4 lg:py-6">
         {logo}
         <Burger isActive={mobileMenuOpen} onClick={onBurgerClick} />
@@ -70,7 +70,7 @@ const DesktopMenu = () => (
     <ul className="flex gap-x-8">
       <AboutUs />
       <InvestmentProducts />
-      <Portfolio />
+      {/* <Portfolio /> */}
       <Charity />
       <SelectNavigation />
       <Contact />
@@ -96,7 +96,7 @@ const MobileMenu = ({
         <ul className="[&_li]:py-3 [&_li]:text-gray-900">
           <AboutUs onClick={onCloseBurgerClick} />
           <InvestmentProducts onClick={onCloseBurgerClick} />
-          <Portfolio onClick={onCloseBurgerClick} />
+          {/* <Portfolio onClick={onCloseBurgerClick} /> */}
           <Charity />
           <SelectNavigation />
           <Contact onClick={onCloseBurgerClick} />

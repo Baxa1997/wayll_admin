@@ -46,7 +46,7 @@ export default function About() {
         </Container>
       </section> */}
 
-      <section className="relative py-16 xl:py-24">
+      <section className="xl-pt relative py-16 xl:py-24">
         <Container>
           <div className="relative mx-auto flex h-auto w-full max-w-[85%] flex-col items-center justify-center rounded-[10px] bg-[#FEF3F3] p-6 outline outline-4 outline-[#D42427] lg:flex-row lg:justify-between lg:p-10">
             <div className="relative flex-shrink-0 lg:absolute lg:left-[-120px] lg:top-[50%] lg:translate-y-[-50%]">
@@ -208,10 +208,6 @@ export default function About() {
           </div>
         </Container>
       </section> */}
-      <SubmitApplication
-        title="Оставьте заявку"
-        subtitle="Оставьте заявку и мы свяжемся с вами"
-      />
     </div>
   );
 }

@@ -3,8 +3,6 @@ import Image from "next/image";
 import Head from "next/head";
 import { useUnit } from "effector-react";
 
-import { SubmitApplication } from "@/widgets/submit-application";
-
 import { Container } from "@/shared/ui";
 import { config } from "@/shared/config";
 import { Project } from "@/shared/types/api";
@@ -15,6 +13,7 @@ import { $projects } from "@/model/projects-list";
 // import arrowUp from "@/../public/images/arrow-up.svg";
 import arrowRight from "@/../public/images/arrow-right.svg";
 import cards from "@/../public/images/cards.png";
+import { InvestmentSubmitApplication } from "@/widgets/submit-application/InvestApplication";
 
 export default function InvestmentProducts() {
   return (
@@ -23,7 +22,7 @@ export default function InvestmentProducts() {
         <title>Investment products</title>
       </Head>
 
-      <section className="py-16 xl:py-24">
+      <section className="py-16 xl:py-24 xl:pt-32">
         <Container>
           <div className="lg:flex lg:items-center lg:justify-between">
             <div>
@@ -113,10 +112,10 @@ export default function InvestmentProducts() {
           className="mx-auto max-h-[640px] w-full max-w-[576px] object-contain"
         />
       </section> */}
-      <SubmitApplication
+      {/* <InvestmentSubmitApplication
         title="Оставьте заявку"
         subtitle="Оставьте заявку и мы свяжемся с вами"
-      />
+      /> */}
     </div>
   );
 }

@@ -3,5 +3,41 @@
 @tailwind utilities;
 
 body.modal-open {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+/* Add this to your global CSS or component-specific CSS file */
+.DialogOverlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.DialogContent {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow:
+    hsl(206, 22%, 7%) 0px 10px 38px -10px,
+    hsl(206, 22%, 7%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  overflow: auto;
+  height: calc(100vh - 50px);
+}
+
+.DialogTitle {
+  margin: 0;
+  font-weight: 500;
+  color: black;
+  font-size: 17px;
+}
+
+.DialogDescription {
+  margin: 10px 0 20px;
+  color: gray;
+  font-size: 14px;
 }

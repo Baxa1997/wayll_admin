@@ -24,7 +24,7 @@ export default function Career() {
         </Container>
       </section> */}
 
-      <section className="pt-16 xl:pt-24">
+      <section className="pt-16 xl:pt-32">
         <Container>
           <div className="border-b border-solid border-b-gray-200 pb-16 xl:pb-24">
             <div className="text-center text-3xl font-semibold text-gray-900 xl:text-4xl">

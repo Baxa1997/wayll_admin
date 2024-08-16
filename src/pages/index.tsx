@@ -94,6 +94,7 @@ export default function Home() {
             {wayll_common?.map((element) => (
               <div>
                 <Feature
+                  key={element?.id}
                   element={element}
                   getRouteElement={getRouteElement}
                   title={element?.title}

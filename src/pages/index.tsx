@@ -92,9 +92,8 @@ export default function Home() {
           </div>
           <div className="py-12">
             {wayll_common?.map((element) => (
-              <div>
+              <div key={element?.id}>
                 <Feature
-                  key={element?.id}
                   element={element}
                   getRouteElement={getRouteElement}
                   title={element?.title}

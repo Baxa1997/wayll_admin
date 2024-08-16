@@ -148,7 +148,7 @@ const Feature = ({
   title: string;
   subtitle: string;
   element: any;
-  getRouteElement: (element: string) => void;
+  getRouteElement: any;
 }) => (
   <div className="border-l-4 border-solid py-4 pl-6 transition-colors duration-200 first:border-l-error-600">
     <div className="text-lg font-semibold text-gray-900">{title}</div>
